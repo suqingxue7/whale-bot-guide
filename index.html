@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="小鲸鱼 QQ 群机器人的使用手册：聊天识图、运势抽签、群聊总结、搜图、表情、外号及扩展功能。">
+  <title>小鲸鱼使用手册 · QQ 群机器人</title>
+  <link rel="icon" type="image/png" href="./assets/whale-mark.png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="小鲸鱼使用手册首页"><img src="./assets/whale-mark.png" alt=""><span>小鲸鱼使用手册</span></a>
+    <div class="top-actions"><a href="#quick-start">在 QQ 中使用</a><a href="#faq">常见问题</a><button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="side-nav">目录</button></div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar" id="side-nav" aria-label="文档目录">
+      <nav class="side-nav">
+        <a class="active" href="#start"><span class="nav-symbol">⌂</span>入门</a>
+        <a href="#popular"><span class="nav-symbol">≡</span>常用命令</a>
+        <a href="#chat"><span class="nav-symbol">▢</span>聊天与识图</a>
+        <a href="#fun"><span class="nav-symbol">☆</span>趣味功能</a>
+        <a href="#summary"><span class="nav-symbol">▤</span>群聊总结</a>
+        <a href="#images"><span class="nav-symbol">▧</span>搜图与表情</a>
+        <a href="#aliases"><span class="nav-symbol">♧</span>群友外号</a>
+        <a href="#extensions"><span class="nav-symbol">✣</span>扩展功能</a>
+        <a href="#faq"><span class="nav-symbol">?</span>常见问题</a>
+      </nav>
+      <p class="sidebar-foot">根据当前机器人插件整理<br>更新于 2026 年 10 月 15 日</p>
+    </aside>
+
+    <main id="main" class="main-content">
+      <section id="start" class="intro doc-section">
+        <h1>让小鲸鱼帮你做点事</h1>
+        <p class="lead">在 QQ 群里聊天、看图、搜图、玩点小游戏。可以直接发指令，也可以用它认识的自然说法提问。</p>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="搜索命令或功能，例如：运势、搜图、外号" aria-label="搜索命令或功能" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </div>
+        <p id="search-status" class="search-status" role="status" aria-live="polite">试试搜索：<button class="search-shortcut" data-term="运势">运势</button><button class="search-shortcut" data-term="抽签">抽签</button><button class="search-shortcut" data-term="搜图">搜图</button><button class="search-shortcut" data-term="总结">总结</button></p>
+        <div id="quick-start" class="quick-start">
+          <div><h2>快速上手示例</h2><p>在群聊中发出这句，看看小鲸鱼的回复</p></div>
+          <div class="example-message"><img src="./assets/whale-mark.png" alt=""><code>@DeepSeek 今天运势怎么样</code><button class="copy-button" data-copy="@DeepSeek 今天运势怎么样" aria-label="复制快速上手示例">复制</button></div>
+        </div>
+        <div class="intro-note"><strong>记住这两种方式</strong><span>斜杠指令直接发；问答、看图、自然语言搜图建议先 <code>@DeepSeek</code>。它偶尔会接群聊，但不会回复每条。</span></div>
+      </section>
+
+      <section id="popular" class="doc-section searchable-section">
+        <div class="section-heading"><h2>常用命令</h2><p>先从这几条开始，复制示例到 QQ 群里发送即可。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>查看菜单</h3><p>看看小鲸鱼的群内功能列表。</p></div><div><code>/菜单</code><button class="copy-button" data-copy="/菜单">复制</button></div></article>
+          <article class="command-row"><div><h3>今日运势</h3><p>查查今天的娱乐运势。</p></div><div><code>/运势</code><button class="copy-button" data-copy="/运势">复制</button></div></article>
+          <article class="command-row"><div><h3>随机抽签</h3><p>抽取当天的签文。</p></div><div><code>/抽签</code><button class="copy-button" data-copy="/抽签">复制</button></div></article>
+          <article class="command-row"><div><h3>帮我选择</h3><p>至少写两个选项，用 <code>|</code> 分隔。</p></div><div><code>/选择 火锅 | 烧烤</code><button class="copy-button" data-copy="/选择 火锅 | 烧烤">复制</button></div></article>
+        </div>
+      </section>
+
+      <section id="chat" class="doc-section searchable-section">
+        <div class="section-heading"><h2>聊天与识图</h2><p>想问问题，或者让它看一眼图片。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>直接聊天</h3><p>提问时 @ 机器人，正常聊天即可。</p></div><div><code>@DeepSeek 这题怎么做？</code><button class="copy-button" data-copy="@DeepSeek 这题怎么做？">复制</button></div></article>
+          <article class="command-row"><div><h3>明确提问</h3><p>用 <code>/问</code> 指定问题。</p></div><div><code>/问 帮我解释一下这个词</code><button class="copy-button" data-copy="/问 帮我解释一下这个词">复制</button></div></article>
+          <article class="command-row"><div><h3>看图 / 读图中文字</h3><p>在同一条消息附上图片并 @ 机器人；也可引用含图片的消息再提问。一次最多读取 3 张图片。</p></div><div><code>@DeepSeek 图里是什么？＋图片</code><button class="copy-button" data-copy="@DeepSeek 图里是什么？">复制</button></div></article>
+          <article class="command-row"><div><h3>查看模型状态</h3><p>查看模型是否启用，不会显示 API 密钥。</p></div><div><code>/模型状态</code><button class="copy-button" data-copy="/模型状态">复制</button></div></article>
+        </div>
+      </section>
+
+      <section id="fun" class="doc-section searchable-section">
+        <div class="section-heading"><h2>趣味功能</h2><p>群里常用的小玩法。斜杠指令最稳妥，部分功能也认识自然说法。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>今日运势</h3><p>同一位群友当天看到的结果固定。</p></div><div><code>/运势</code><button class="copy-button" data-copy="/运势">复制</button><small>也可以说“查看今日运势”</small></div></article>
+          <article class="command-row"><div><h3>抽签与解签</h3><p>抽取今日签文，再看解释。</p></div><div><code>/抽签</code><button class="copy-button" data-copy="/抽签">复制</button><code>/解签</code></div></article>
+          <article class="command-row"><div><h3>帮我选择</h3><p>用竖线分隔 2～20 个选项；也可说“帮我选火锅还是烧烤”。</p></div><div><code>/选择 火锅 | 烧烤 | 日料</code><button class="copy-button" data-copy="/选择 火锅 | 烧烤 | 日料">复制</button></div></article>
+          <article class="command-row"><div><h3>今日群友</h3><p>从最近七天活跃、没有退出活动的群友中抽取。</p></div><div><code>/今日群友</code><button class="copy-button" data-copy="/今日群友">复制</button></div></article>
+          <article class="command-row"><div><h3>退出 / 加入今日群友</h3><p>由群友自己决定是否参与抽取。</p></div><div><code>/不参加今日群友</code><code>/参加今日群友</code></div></article>
+          <article class="command-row"><div><h3>猜歌与积分</h3><p>曲库配置完成后：听片段，用 <code>/猜 歌名</code> 回答，最多取两次提示。</p></div><div><code>/猜歌</code><code>/猜 歌名</code><code>/提示</code></div></article>
+          <article class="command-row"><div><h3>积分与排行榜</h3><p>查看本群猜歌积分。</p></div><div><code>/积分</code><code>/排行榜</code></div></article>
+        </div>
+        <div class="notice"><strong>猜歌暂不可用</strong><span>当前歌曲清单为空，群主配置合法音频与曲库后才能开始游戏；其余积分指令可以查询已有记录。</span></div>
+      </section>
+
+      <section id="summary" class="doc-section searchable-section">
+        <div class="section-heading"><h2>群聊总结</h2><p>快速回顾最近的聊天活动。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>默认总结</h3><p>总结最近最多 200 条已记录的群聊消息。</p></div><div><code>/群聊总结</code><button class="copy-button" data-copy="/群聊总结">复制</button></div></article>
+          <article class="command-row"><div><h3>指定条数</h3><p>可指定 10～1000 条；实际数量取决于群内已记录的消息。</p></div><div><code>/群聊总结 500</code><button class="copy-button" data-copy="/群聊总结 500">复制</button></div></article>
+        </div>
+        <div class="plain-note">优先通过 <strong>DeepSeek API</strong> 整理话题和要点；模型未配置或暂不可用时，回退为统计简报。只处理机器人已经记录的消息，不代表完整群历史。</div>
+      </section>
+
+      <section id="images" class="doc-section searchable-section">
+        <div class="section-heading"><h2>搜图与表情</h2><p>找一张相关图片，或者发一张合适的梗图。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>搜索图片</h3><p>可直接用指令，也可 @ 机器人说“找一张猫娘图”。默认发 1 张，最多 3 张；会随机挑选并尽量避开近期重复。</p></div><div><code>/搜图 猫娘</code><button class="copy-button" data-copy="/搜图 猫娘">复制</button><small>也支持 /找图 关键词</small></div></article>
+          <article class="command-row"><div><h3>再来一张</h3><p>搜图后约 5 分钟内，@ 机器人继续找同一关键词的后续结果。</p></div><div><code>@DeepSeek 再来一张</code><button class="copy-button" data-copy="@DeepSeek 再来一张">复制</button></div></article>
+          <article class="command-row"><div><h3>指定张数</h3><p>一次可指定 1～3 张。</p></div><div><code>/搜图 小猫 2</code><button class="copy-button" data-copy="/搜图 小猫 2">复制</button></div></article>
+          <article class="command-row"><div><h3>发送表情包</h3><p>按关键词选择已收录的梗鲸表情，也可能在聊天回复后少量自动配表情。</p></div><div><code>/表情包 开心</code><button class="copy-button" data-copy="/表情包 开心">复制</button></div></article>
+          <article class="command-row"><div><h3>查看表情库 / 技能状态</h3><p>看看可用表情和兼容技能。</p></div><div><code>/梗鲸图库</code><code>/兼容技能</code></div></article>
+        </div>
+      </section>
+
+      <section id="aliases" class="doc-section searchable-section">
+        <div class="section-heading"><h2>群友外号</h2><p>外号按群分别记录，不会把一个群的称呼带进另一个群。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>设置自己的外号</h3><p>多个外号用竖线分隔。</p></div><div><code>/设置外号 小明 | 明仔</code><button class="copy-button" data-copy="/设置外号 小明 | 明仔">复制</button></div></article>
+          <article class="command-row"><div><h3>查看 / 删除自己的外号</h3><p>删除时写外号；写“全部”可清空。</p></div><div><code>/我的外号</code><code>/删除外号 明仔</code></div></article>
+          <article class="command-row"><div><h3>查看本群外号</h3><p>查看群友登记的外号，或查看指定成员。</p></div><div><code>/群友外号</code><code>/查看外号 @群友</code></div></article>
+          <article class="command-row"><div><h3>管理员维护</h3><p>仅群主或群管理员可设置、删除别人的外号。</p></div><div><code>/设置群友外号 @群友 外号</code><code>/删除群友外号 @群友 外号</code></div></article>
+        </div>
+      </section>
+
+      <section id="extensions" class="doc-section searchable-section">
+        <div class="section-heading"><h2>扩展功能</h2><p>这些功能依赖外部服务与群内设置，遇到超时或未开放可联系群管理。</p></div>
+        <div class="subheading"><h3>Pixiv 标签搜图</h3><p>检索安全分级的插画，可指定 1～3 张。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>按角色搜索</h3><p>也可 @ 机器人说“来张古明地恋的 Pixiv 图”。</p></div><div><code>/pixiv 古明地恋</code><button class="copy-button" data-copy="/pixiv 古明地恋">复制</button></div></article>
+          <article class="command-row"><div><h3>指定标签与数量</h3><p>竖线左边是角色，右边是标签；尾部数字指定张数。</p></div><div><code>/pixiv 初音未来 | 初音ミク 2</code><button class="copy-button" data-copy="/pixiv 初音未来 | 初音ミク 2">复制</button></div></article>
+        </div>
+        <div class="subheading subsection-space"><h3>JM 扩展</h3><p>仅在群管理允许、符合群规和法律的场景使用。下载与上传受外部服务状态影响。</p></div>
+        <div class="command-list">
+          <article class="command-row"><div><h3>查看状态与列表</h3><p>查看下载任务、今日条目和书架。</p></div><div><code>/JM状态</code><code>/今日JM</code><code>/JM书架</code></div></article>
+          <article class="command-row"><div><h3>请求编号</h3><p>用明确的 JM 编号提出请求；普通裸数字只有 @ 机器人时才会识别。</p></div><div><code>/JM 123456</code><button class="copy-button" data-copy="/JM 123456">复制</button></div></article>
+          <article class="command-row"><div><h3>任务管理</h3><p>可查询存储、暂停或继续指定任务。删除会清理该任务及产物，请谨慎使用。</p></div><div><code>/JM存储</code><code>/暂停下载 JM123456</code><code>/继续下载 JM123456</code></div></article>
+        </div>
+      </section>
+
+      <section id="faq" class="doc-section searchable-section">
+        <div class="section-heading"><h2>常见问题</h2><p>先排除最常见的使用问题。</p></div>
+        <div class="faq-list">
+          <details><summary>机器人没有回复，怎么办？</summary><p>先试 <code>/菜单</code> 或 <code>/模型状态</code>。自然聊天建议 @DeepSeek；它不会接每条群消息。若指令也没反应，请联系群管理确认机器人在线。</p></details>
+          <details><summary>为什么“猜歌”启动不了？</summary><p>当前曲库为空。需要群主先准备有使用权限的音频并配置歌曲清单。</p></details>
+          <details><summary>“群聊总结”是不是 AI 帮忙读完所有聊天？</summary><p>已接入 DeepSeek API，默认总结最近 200 条已记录的消息，可指定最多 1000 条。接口不可用时会返回统计简报，不会伪造模型总结。</p></details>
+          <details><summary>搜图会不会总是第一张？</summary><p>普通搜图会从一批结果中随机选，且尽量避开当前运行期间同一群里近期发过的同关键词图片。结果池有限时仍可能重复。</p></details>
+          <details><summary>为什么某些图片、Pixiv 或扩展功能失败？</summary><p>图片来源、外部接口、网络或群内权限都可能影响结果。换个关键词再试；持续失败时告诉群管理具体命令和大概时间。</p></details>
+        </div>
+      </section>
+
+      <footer class="footer"><span>小鲸鱼使用手册 · 与群聊机器人独立的静态文档</span><a href="#start">回到顶部 ↑</a></footer>
+    </main>
+
+    <aside class="toc" aria-label="本页目录"><div class="toc-inner"><strong>本页目录</strong><a href="#start">让小鲸鱼帮你做点事</a><a href="#popular">常用命令</a><a href="#chat">聊天与识图</a><a href="#fun">趣味功能</a><a href="#summary">群聊总结</a><a href="#images">搜图与表情</a><a href="#aliases">群友外号</a><a href="#extensions">扩展功能</a><a href="#faq">常见问题</a></div></aside>
+  </div>
+</body>
+</html>
+
